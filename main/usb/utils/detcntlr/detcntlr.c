@@ -85,7 +85,7 @@
  */
 
 #include <ctype.h>
-#include <conio.h>
+//#include <conio.h>
 #include <string.h>
 #include <stdio.h>
 
@@ -93,6 +93,9 @@
 #include "../include/pci.h"
 
 #include "detcntlr.h"
+
+#include <sys/io.h>
+
 
 bit32u pci_mem_range(const bit8u bus, const bit8u dev, const bit8u func, const bit8u port);
 
@@ -105,6 +108,8 @@ int main(int argc, char *argv[]) {
   bit32u *pcidata = (bit32u *) &data;
   bit32u base = 0, size = 0;
   bool prt_type = FALSE;
+
+  iopl(3);
   
   printf("Detect USB Controllers on a PCI Bus.     v1.00.00\n"
          "Forever Young Software   --   Copyright 1984-2022\n");
