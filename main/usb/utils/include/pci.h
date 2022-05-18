@@ -121,7 +121,7 @@ __inline__ bit8u inpb(const bit16u port) {
 }
 
 // out port byte (8-bit)
-__inline__ void outpb(const bit16u port, const bit8u data) {
+static inline void outpb(const bit16u port, const bit8u data) {
   __asm__ __volatile__ ("outb %1, %0"
 	  :
     : "dN" (port),
@@ -129,7 +129,7 @@ __inline__ void outpb(const bit16u port, const bit8u data) {
 }
 
 // in port word (16-bit)
-__inline__ bit16u inpw(const bit16u port) {
+static inline bit16u inpw(const bit16u port) {
   bit16u rv;
   __asm__ __volatile__ ("inw %1, %0"
 	  : "=a" (rv)
@@ -138,7 +138,7 @@ __inline__ bit16u inpw(const bit16u port) {
 }
 
 // out port word (16-bit)
-__inline__ void outpw(const bit16u port, const bit16u data) {
+static inline void outpw(const bit16u port, const bit16u data) {
   __asm__ __volatile__ ("outw %1, %0"
 	  :
     : "dN" (port),
@@ -146,7 +146,7 @@ __inline__ void outpw(const bit16u port, const bit16u data) {
 }
 
 // in port double (32-bit)
-__inline__ bit32u inpd(const bit16u port) {
+static inline bit32u inpd(const bit16u port) {
   bit32u rv;
   __asm__ __volatile__ ("inl %1, %0"
 	  : "=a" (rv)
@@ -155,7 +155,7 @@ __inline__ bit32u inpd(const bit16u port) {
 }
 
 // out port double (32-bit)
-__inline__ void outpd(const bit16u port, const bit32u data) {
+static inline void outpd(const bit16u port, const bit32u data) {
   __asm__ __volatile__ ("outl %1, %0"
 	  :
     : "dN" (port),
